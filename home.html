@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<link href="css/grayscale.min.css" rel="stylesheet">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#">
+                    <i class="fa fa-play-circle"></i> <span class="light">PLAY</span> MUSIC
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="ts-profile-nav">
+
+ <a href="#" style="text-decoration: none;">
+   <img src="img/ava.png" class="ts-avatar hidden-side">
+   <span class="username" style="color:white"></span>
+ </a>
+
+
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                       <a href="#" class="account">My Account</a>
+                   </li>
+                    <li>
+                        <a href="#" class="view">Update</a>
+                    </li>
+                    <li>
+                        <a class="scroll" onclick="deleteCookie()" href="signin.html">Log out</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <header class="intro">
+          <div class="intro-body">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">HELLO ,</h1>
+                            <h1>You can management User <br>At Top Menu!</h1>
+                            <br>
+
+
+                          <a href="#about" class="btn btn-circle">
+                              <i class="fa fa-music animated"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
+
+
+
+
+
+
+
+
+        <!-- jQuery -->
+        <script src="vendor/jquery/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+        <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/cache.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/user.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    console.log($.cookie('keep'));
+    function deleteCookie() {
+      $.removeCookie('keep');
+      console.log($.removeCookie('keep'));
+    }
+    $(document).ready(function() {
+      $.urlParam = function(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+      }
+      $(function() {
+        var id = $.urlParam('id');
+        var url = "http://membershipwebapi977290.azurewebsites.net/api/Members/" + id;
+        console.log(url);
+        $.get(url, function(inf, status) {
+          console.log(inf);
+          $('.account').attr('href', "edituser.html?id=" + inf.Id);
+          $(".my-profile").attr('href', "my-profile.html?id=" + inf.Id);
+          $('.username').html(inf.UserName);
+          $(".view").attr('href', "viewuser.html?id=" + inf.Id);
+          $(".edit").attr('href', "edituser.html?id=" + inf.Id);
+          $(".dashboard").attr('href', "home.html?id=" + inf.Id);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

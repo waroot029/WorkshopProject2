@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tag.css">
+
+    <title>My Account</title>
+
+    <!-- Bootstrap Core CSS -->
+
+
+    <!-- Custom Fonts -->
+
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="dashboard" href="#">
+                    <i class="fa fa-play-circle"></i> <span class="light">PLAY</span> MUSIC
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="ts-profile-nav">
+           <li class="ts-account">
+
+               <a href="#" style="text-decoration: none;">
+                   <img src="img/ava.png" class="ts-avatar hidden-side">
+                   <span class="username" style="color:white"></span>
+               </a>
+
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                       <a href="#" class="account">My Account</a>
+                   </li>
+                    <li>
+                        <a href="#" class="view"> Update</a>
+                    </li>
+                    <li>
+                        <a class="scroll" onclick="deleteCookie()" href="signin.html">Log out</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <br>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br><br>
+                              <br><br><br>
+                                    <br><br>
+                              <legend></legend>
+                        <h2 class="page-title"><span class="fname"></span>'s Account</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <div>
+                 <div class="panel-heading">Account</div>
+                                  <legend></legend>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" action="#" method="POST" role="form">
+                                            <div class="form-group">
+                                                <label for="username" class="col-sm-2 control-label">Username </label>
+                                                <div class="col-sm-10">
+
+                                                    <input type="text" class="form-control" id="username" name="username" disabled>
+                                                    <span class="help-block m-b-none">Username can't be changed.</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email" class="col-sm-2 control-label">E-Mail Address</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="email" name="email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="password" name="password" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="fname" name="fname" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="lname" name="lname" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="tel" name="tel" disabled style="display: none;">
+                                                </div>
+                                            </div>
+                                            <center><div class="col-sm-8 col-sm-offset-2">
+                                                <button type="button" name="button" class="cancel btn btn-default">Cancel</button>
+                                                <button type="button" name="button" id="save" class="btn btn-success">Update Account</button>
+                                            </div></center>
+                                        </form>
+                                    </div>
+                                    <div class="panel-footer panel-heading"></div>
+                                </div>
+                                <div id="suc" style="display:none" class="alert alert-success alert-dismissable fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                                    <strong>Update Successful!!!</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div>
+
+                                    <div class="panel-heading">Change Password</div>
+                                    <legend></legend>
+                                    <div class="panel-body">
+
+                                        <form id="change" class="form-horizontal" action="#" method="POST" role="form">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">Old Password</label>
+                                                <div class="col-sm-8">
+                                                    <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Password has max length to 12" maxlength="12">
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">New Password</label>
+                                                <div class="col-sm-8">
+                                                    <input type="password" class="form-control" id="npassword" name="npassword" placeholder="Password has max length to 12" maxlength="12">
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">Confirm Password</label>
+                                                <div class="col-sm-8">
+                                                    <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Password has max length to 12" maxlength="12">
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="username" name="username" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="fname" name="fname" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="lname" name="lname" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="tel" name="tel" disabled style="display: none;">
+                                                    <input type="text" class="form-control" id="email" name="email" disabled style="display: none;">
+                                                </div>
+                                            </div>
+                                            <center><div class="col-sm-8 col-sm-offset-2">
+                                                <button type="button" name="button" class="cancel btn btn-default">Cancel</button>
+                                                <button type="submit" name="button" id="edit" class="btn btn-success">Change Password</button>
+                                            </div></center>
+                                        </form>
+                                    </div>
+                                    <div class="panel-footer panel-heading"></div>
+                                </div>
+                                <div id="err2" style="display:none" class="alert alert-success alert-dismissable fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                                    <strong>Change Successful!!!</strong>
+                                </div>
+                                <div id="err4" style="display:none" class="alert alert-danger alert-dismissable fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+                                    <strong>Incorrect!!! : </strong>
+                                    <span style="color:blue;font-weight:bold" id="summary4">
+                              Your form contains tons of errors! Please try again.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/cache.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/account.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        console.log($.cookie('keep'));
+
+        function deleteCookie() {
+            $.removeCookie('keep');
+            console.log($.removeCookie('keep'));
+        }
+    </script>
+</body>
+
+</html>
