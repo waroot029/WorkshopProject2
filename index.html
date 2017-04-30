@@ -21,7 +21,7 @@
 
     <!-- Theme CSS -->
     <link href="css/grayscale.min.css" rel="stylesheet">
-
+      <link href="css/music.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -77,8 +77,16 @@
                         <h1 class="brand-heading">WELCOME</h1>
                         <p class="intro-text">MUSIC SYSTEM
                             <br>Please SIGN UP or SIGN IN.</p>
-                        <a href="#about" class="btn btn-circle">
-                            <i class="fa fa-music animated"></i>
+
+                            <div class="player-container">
+                              <div class="player-wrap">
+                                <div class="play-pause"></div>
+                               <audio id="main-audio" preload="none" width="100%" src="LookAtMeNow.mp3" autoplay="true">
+                               </audio>
+                              </div>
+                            </div>
+
+
                         </a>
                     </div>
                 </div>
@@ -106,6 +114,7 @@
 
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
+    <script src="js/music.js"></script>
 
 </body>
 
